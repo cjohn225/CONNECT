@@ -57,17 +57,7 @@ public class PassthroughOutboundAdminDistribution implements OutboundAdminDistri
         this.adDelegate = adDelegate;
     }
 
-    /**
-     * This method implements sendAlertMessage for AdminDist when in passthrumode.
-     * 
-     * @param request
-     * @param assertion
-     * @param target
-     */
-    @Override
-    @OutboundProcessingEvent(beforeBuilder = ADRequestTransformingBuilder.class,
-            afterReturningBuilder = DefaultEventDescriptionBuilder.class, serviceType = "Admin Distribution",
-            version = "")
+   
     public void sendAlertMessage(RespondingGatewaySendAlertMessageSecuredType message, AssertionType assertion,
             NhinTargetCommunitiesType target) {
         RespondingGatewaySendAlertMessageType request = msgUtils.convertToUnsecured(message, assertion, target);
@@ -83,9 +73,6 @@ public class PassthroughOutboundAdminDistribution implements OutboundAdminDistri
      * @param target
      */
     @Override
-    @OutboundProcessingEvent(beforeBuilder = ADRequestTransformingBuilder.class,
-            afterReturningBuilder = DefaultEventDescriptionBuilder.class, serviceType = "Admin Distribution",
-            version = "")
     public void sendAlertMessage(RespondingGatewaySendAlertMessageType request, AssertionType assertion,
             NhinTargetCommunitiesType targetCommunities) {
         
